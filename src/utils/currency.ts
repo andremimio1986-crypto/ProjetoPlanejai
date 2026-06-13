@@ -12,7 +12,11 @@ export function formatCurrencyMask(value: string): string {
 	}
 
 	return number.toLocaleString('pt-BR', {
-		style: 'currency',
-		currency: 'BRL',
+		minimumFractionDigits: 2,
+		maximumFractionDigits: 2,
 	});
+}
+
+export function parseCurrency(value: string): number {
+	return parseFloat(value.replace(/\./g, '').replace(',', '.').replace('R$', '')) || 0;
 }
