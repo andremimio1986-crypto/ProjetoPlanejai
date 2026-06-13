@@ -13,12 +13,12 @@ export const router = createBrowserRouter([
 				element: <SimulationFormPage />,
 			},
 			{
-				path: '/resultado',
+				path: '/resultado/:id',
 				element: <SimulationResultsPage />,
 			},
 			{
 				path: '/historico',
-				element: <div className="mx-auto max-w-6xl px-4 py-10 sm:py-14">Em breve...</div>,
+				element: <h1>Histórico de Simulações</h1>,
 			},
 		],
 	},
