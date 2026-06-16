@@ -1,3 +1,5 @@
+import 'react-loading-skeleton/dist/skeleton.css';
+
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { buildAIPrompt } from '@/data/aiPrompt';
@@ -7,7 +9,7 @@ import { getInsight, type InsightData } from '@/services/aiService';
 
 export const useInsight = (id: string) => {
 	const isRequestPending = useRef(false);
-	const { getFormData } = useSimulationStorage();
+	const { getFormData, updateSimulation } = useSimulationStorage();
 
 	const [insight, setInsight] = useState<InsightData | null>(() => {
 		const simulation = getFormData(id);
@@ -53,7 +55,7 @@ export const useInsight = (id: string) => {
 				setIsLoading(false);
 			}
 		},
-		[getFormData]
+		[getFormData, updateSimulation]
 	);
 
 	useEffect(() => {
